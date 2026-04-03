@@ -11,16 +11,16 @@ export default function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "circOut" }}
           >
-            <h1 className="text-5xl md:text-[9rem] font-black uppercase leading-[0.8] tracking-tighter mb-4">
+            <h1 className="text-[12vw] sm:text-5xl md:text-[9rem] font-black uppercase leading-[0.8] tracking-tighter mb-4 break-words">
               <DecryptedText text="ART" hoverText="AESTHETICS" speed={0.2} /> <br />
               <span className="text-outline-black text-transparent" style={{ WebkitTextStroke: '2px black' }}>
                 <DecryptedText text="LOGIC" hoverText="REASON" speed={0.2} />
               </span> <br />
               <DecryptedText text="CHARACTER" hoverText="ETHOS" speed={0.2} />
             </h1>
-            <div className="max-w-3xl border-l-[6px] md:border-l-[10px] border-black pl-4 md:pl-6 py-1">
-              <p className="text-lg md:text-2xl font-black uppercase leading-tight italic">
-                Adithya: A creator navigating the void between <span className="bg-black text-white px-2"><DecryptedText text="Philosophy" /></span> and <span className="bg-black text-white px-2"><DecryptedText text="Creation" /></span>.
+            <div className="max-w-3xl border-l-[4px] md:border-l-[10px] border-black pl-4 md:pl-6 py-1">
+              <p className="text-base sm:text-lg md:text-2xl font-black uppercase leading-tight italic">
+                Adithya: A creator navigating the void between <span className="bg-black text-white px-2"><DecryptedText text="Philosophy" /></span> and <span className="bg-black text-white px-2 mt-1 inline-block"><DecryptedText text="Creation" /></span>.
               </p>
             </div>
           </motion.div>
