@@ -4,7 +4,7 @@ import DecryptedText from './DecryptedText';
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-16 md:py-24 bg-black text-white border-b-8 border-black">
+    <section id="contact" className="py-16 md:py-24 bg-black text-white border-b-8 border-black overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>

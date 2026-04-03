@@ -8,7 +8,7 @@ export default function Projects() {
   const recentArticles = getRecentArticles('projects', 3);
 
   return (
-    <section id="projects" className="py-16 md:py-24 border-b-8 border-black bg-white">
+    <section id="projects" className="py-16 md:py-24 border-b-8 border-black bg-white overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <h2 className="text-5xl md:text-8xl font-black uppercase leading-none tracking-tighter">
