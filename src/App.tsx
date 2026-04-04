@@ -3,6 +3,7 @@ import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import PhilosophyPage from './pages/PhilosophyPage';
 import ArticleView from './pages/ArticleView';
+import AboutPage from './pages/AboutPage';
 import VisionPage from './pages/VisionPage';
 import ProjectsPage from './pages/ProjectsPage';
 import BlogPage from './pages/BlogPage';
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/philosophy" element={<PhilosophyPage />} />
           <Route path="/article/:slug" element={<ArticleView />} />
+          <Route path="/me" element={<AboutPage />} />
           <Route path="/vision" element={<VisionPage />} />
           <Route path="/projects" element={<ProjectsPage />} />
           <Route path="/blog" element={<BlogPage />} />

@@ -8,6 +8,7 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
+    { name: "Me", hover: "Lore", path: "/me" },
     { name: "Thinking", hover: "Philosophy", path: "/philosophy" },
     { name: "Vision", hover: "Teleology", path: "/vision" },
     { name: "Projects", hover: "Endeavors", path: "/projects" },
