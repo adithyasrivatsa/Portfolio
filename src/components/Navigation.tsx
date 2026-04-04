@@ -11,6 +11,7 @@ export default function Navigation() {
     { name: "Thinking", hover: "Philosophy", path: "/philosophy" },
     { name: "Vision", hover: "Teleology", path: "/vision" },
     { name: "Projects", hover: "Endeavors", path: "/projects" },
+    { name: "Articles", hover: "Developers", path: "/articles" },
     { name: "Blog", hover: "Journal", path: "/blog" },
     { name: "Conversations", hover: "Dialogue", path: "/contact" }
   ];

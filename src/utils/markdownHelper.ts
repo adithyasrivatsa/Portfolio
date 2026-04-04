@@ -24,6 +24,8 @@ export function getAllArticles(category: string): Article[] {
     modules = import.meta.glob('/src/content/projects/*.md', { query: '?raw', import: 'default', eager: true });
   } else if (category === 'vision') {
     modules = import.meta.glob('/src/content/vision/*.md', { query: '?raw', import: 'default', eager: true });
+  } else if (category === 'articles') {
+    modules = import.meta.glob('/src/content/articles/*.md', { query: '?raw', import: 'default', eager: true });
   }
 
   const articles: Article[] = [];
