@@ -17,10 +17,16 @@ export default function PhilosophyPage() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {articles.map((article) => (
-              <Link 
+            {articles.map((article) => {
+              const CustomTag = article.metadata.customLink ? 'a' : Link;
+              const linkProps = article.metadata.customLink 
+                ? { href: article.metadata.customLink } 
+                : { to: `/article/${article.slug}` };
+
+              return (
+              <CustomTag 
                 key={article.slug} 
-                to={`/article/${article.slug}`}
+                {...linkProps as any}
                 className="block border-4 border-black p-6 hover:bg-black hover:text-white transition-colors duration-300 group"
               >
                 <div className="text-xs font-mono opacity-50 mb-4 group-hover:opacity-75">
@@ -32,8 +38,9 @@ export default function PhilosophyPage() {
                 <p className="font-mono text-sm opacity-70 group-hover:opacity-90">
                   {article.metadata.description}
                 </p>
-              </Link>
-            ))}
+              </CustomTag>
+              );
+            })}
             
             {articles.length === 0 && (
               <div className="col-span-2 text-center py-12 border-2 border-black border-dashed opacity-50 font-mono">

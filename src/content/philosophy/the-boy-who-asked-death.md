@@ -3,6 +3,7 @@ title: "The Boy Who Asked Death a Question"
 date: "2026-04-04"
 description: "Why an ancient conversation between a child and a god is the most honest answer I've found to the question I never stopped asking."
 tags: ["philosophy", "death", "upanishads"]
+customLink: "/shards/the-boy-who-asked-death.html"
 ---
 
 # The Boy Who Asked Death a Question

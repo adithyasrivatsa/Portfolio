@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Still Pray. I'm Not Sure Why.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f7f4ee;
+    --bg2: #efe9dc;
+    --ink: #1a1610;
+    --ink-soft: #3d3528;
+    --muted: #8a7d65;
+    --accent: #2a5c8a;
+    --accent-warm: #7a3d1a;
+    --saffron: #d4821a;
+    --saffron-light: #f0b955;
+    --saffron-dim: #c49840;
+    --teal: #1a6b5c;
+    --border: #d4c9b0;
+    --surface: #fff9f0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.85;
+    overflow-x: hidden;
+  }
+
+  /* ─── GRAIN TEXTURE ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    background: var(--ink);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left::before {
+    content: '';
+    position: absolute;
+    top: -100px; left: -100px;
+    width: 400px; height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #d4821a18 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .mandala {
+    position: absolute;
+    right: -80px; top: 50%;
+    transform: translateY(-50%);
+    width: 300px; height: 300px;
+    opacity: 0.06;
+    animation: rotateSlow 60s linear infinite;
+  }
+
+  @keyframes rotateSlow {
+    from { transform: translateY(-50%) rotate(0deg); }
+    to { transform: translateY(-50%) rotate(360deg); }
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.2s;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(38px, 5vw, 68px);
+    font-weight: 300;
+    color: #f5efe4;
+    line-height: 1.1;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.5s;
+  }
+
+  .hero-title strong {
+    font-weight: 700;
+    font-style: italic;
+    color: var(--saffron-light);
+    display: block;
+  }
+
+  .hero-byline {
+    font-size: 15px;
+    color: #7a6e5e;
+    font-style: italic;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 0.8s;
+  }
+
+  .hero-right {
+    background: var(--bg2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 60px;
+    position: relative;
+  }
+
+  .hero-right::after {
+    content: 'ॐ';
+    font-size: 280px;
+    color: var(--saffron);
+    opacity: 0.07;
+    position: absolute;
+    font-family: serif;
+    line-height: 1;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.07; }
+    50% { transform: scale(1.04); opacity: 0.11; }
+  }
+
+  .hero-pull {
+    position: relative;
+    z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 2.5vw, 30px);
+    font-style: italic;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards 1s;
+  }
+
+  .hero-pull em {
+    color: var(--saffron);
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── ARTICLE BODY ─── */
+  .article {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 100px 48px 160px;
+  }
+
+  p {
+    margin-bottom: 28px;
+    color: var(--ink-soft);
+  }
+
+  p strong { color: var(--ink); }
+  p em { color: var(--saffron); font-style: italic; }
+
+  /* ─── SECTION HEADINGS ─── */
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 600;
+    color: var(--ink);
+    margin: 80px 0 24px;
+    line-height: 1.2;
+    position: relative;
+    padding-left: 24px;
+  }
+
+  h2::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 8px; bottom: 8px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--saffron), var(--saffron-dim));
+  }
+
+  h2 .num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--accent-warm);
+    margin: 48px 0 16px;
+  }
+
+  /* ─── QUOTE BLOCK ─── */
+  .verse {
+    margin: 52px 0;
+    padding: 36px 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--saffron);
+    position: relative;
+  }
+
+  .verse::before {
+    content: attr(data-source);
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .verse-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+
+  .verse-translation {
+    font-size: 14px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-style: normal;
+    margin: 0;
+  }
+
+  /* ─── PASCAL'S WAGER CARD ─── */
+  .wager-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 48px 0;
+    background: var(--border);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .wager-header {
+    background: var(--ink);
+    color: #f5efe4;
+    padding: 16px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .wager-cell {
+    background: var(--surface);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .wager-cell .outcome {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .wager-cell .outcome.good { color: var(--teal); }
+  .wager-cell .outcome.neutral { color: var(--muted); }
+  .wager-cell .desc {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  .wager-row-label {
+    background: var(--bg2);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    writing-mode: horizontal-tb;
+    border-right: 1px solid var(--border);
+  }
+
+  /* ─── RAVAN RAM CONTRAST ─── */
+  .contrast {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 48px 0;
+  }
+
+  .contrast-card {
+    padding: 32px 28px;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .contrast-card.ravan { background: linear-gradient(135deg, #1a101008 0%, #8b2020 08 0%, #1a161008, transparent); border-color: #c4704440; }
+  .contrast-card.ram { background: linear-gradient(135deg, #f0f9f608 0%, transparent); border-color: #1a6b5c40; }
+
+  .contrast-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .contrast-card.ravan .contrast-label { color: #c47044; }
+  .contrast-card.ram .contrast-label { color: var(--teal); }
+
+  .contrast-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .contrast-attr {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 6px;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+
+  .contrast-attr::before { content: '—'; color: var(--border); flex-shrink: 0; }
+
+  .contrast-verdict {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-style: italic;
+    font-size: 16px;
+  }
+
+  .contrast-card.ravan .contrast-verdict { color: #c47044; }
+  .contrast-card.ram .contrast-verdict { color: var(--teal); }
+
+  /* ─── CALLOUT ─── */
+  .insight {
+    background: var(--ink);
+    padding: 40px 44px;
+    margin: 56px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .insight::before {
+    content: '✦';
+    position: absolute;
+    top: 20px; right: 30px;
+    font-size: 60px;
+    color: var(--saffron);
+    opacity: 0.15;
+  }
+
+  .insight-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    color: var(--saffron-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .insight p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #f5efe4;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .insight p em { color: var(--saffron-light); font-style: normal; }
+
+  /* ─── RIG VEDA SPECIAL BLOCK ─── */
+  .rig-block {
+    margin: 56px 0;
+    padding: 40px;
+    background: linear-gradient(135deg, #e8dfc800, #e8dfc8 50%, #e8dfc800 100%);
+    border-top: 1px solid var(--saffron-dim);
+    border-bottom: 1px solid var(--saffron-dim);
+    text-align: center;
+  }
+
+  .rig-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.5em;
+    color: var(--saffron);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .rig-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 3vw, 28px);
+    font-style: italic;
+    color: var(--ink);
+    line-height: 1.6;
+    max-width: 540px;
+    margin: 0 auto 20px;
+  }
+
+  .rig-note {
+    font-size: 14px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    margin: 0;
+  }
+
+  /* ─── PERSONAL CLOSE ─── */
+  .close {
+    margin-top: 80px;
+    padding: 48px 0 0;
+    border-top: 2px solid var(--saffron-dim);
+  }
+
+  .close p {
+    font-size: 20px;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  .close p strong { font-style: normal; color: var(--ink); }
+
+  /* ─── HR ─── */
+  .hr {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 64px 0;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    text-align: center;
+    padding: 60px 40px 80px;
+    border-top: 1px solid var(--border);
+  }
+
+  footer p {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ─── SCROLL REVEAL ─── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.75s ease, transform 0.75s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .hero-left { padding: 80px 32px; }
+    .article { padding: 60px 24px 100px; }
+    .contrast { grid-template-columns: 1fr; }
+    .wager-grid { grid-template-columns: 1fr; }
+    .wager-header:first-child { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <svg class="mandala" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" stroke="white" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="70" stroke="white" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="50" stroke="white" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="30" stroke="white" stroke-width="0.5"/>
+      <line x1="100" y1="10" x2="100" y2="190" stroke="white" stroke-width="0.5"/>
+      <line x1="10" y1="100" x2="190" y2="100" stroke="white" stroke-width="0.5"/>
+      <line x1="36" y1="36" x2="164" y2="164" stroke="white" stroke-width="0.5"/>
+      <line x1="164" y1="36" x2="36" y2="164" stroke="white" stroke-width="0.5"/>
+      <line x1="100" y1="10" x2="10" y2="100" stroke="white" stroke-width="0.3"/>
+      <line x1="190" y1="100" x2="100" y2="190" stroke="white" stroke-width="0.3"/>
+      <line x1="10" y1="100" x2="100" y2="10" stroke="white" stroke-width="0.3"/>
+      <line x1="100" y1="190" x2="190" y2="100" stroke="white" stroke-width="0.3"/>
+    </svg>
+    <p class="hero-tag">Personal Essay · Theology · Doubt · Integrity</p>
+    <h1 class="hero-title">
+      I Still Pray.
+      <strong>I'm Not Sure Why.</strong>
+    </h1>
+    <p class="hero-byline">An honest look at God, devotion, Pascal's logic, and why Shiva chose Ram over Ravan.</p>
+  </div>
+  <div class="hero-right">
+    <p class="hero-pull">
+      The Rig Veda says maybe God exists. Maybe not.<br>
+      <em>Maybe even God doesn't know if God exists.</em><br><br>
+      That is either the most terrifying sentence in religious history —<br>
+      or the most honest one.
+    </p>
+  </div>
+</section>
+
+<!-- ARTICLE -->
+<article class="article">
+
+  <section class="reveal">
+    <h2><span class="num">01</span>The Honest Starting Point</h2>
+    <p>I pray. Most mornings, more out of habit than conviction, sometimes out of something that feels uncomfortably close to need. And if you ask me whether God exists, I'll give you the most truthful answer I have: <em>I don't know.</em></p>
+    <p>Not the diplomatic "nobody can know." Not the safe agnostic shrug. A real, sitting-with-it, doesn't-resolve-cleanly uncertainty. I grew up in a Hindu household where the gods looked less like authority figures and more like characters — complex, moody, brilliant, flawed in interesting ways. Ganesha with his broken tusk. Shiva who is simultaneously the destroyer and the greatest meditator. Krishna who argues philosophy on a battlefield. These weren't distant cosmic judges. They felt approachable. I liked them.</p>
+    <p>But as I got older, the question stopped being "which god is real" and became something harder: <strong>is any of this real at all?</strong> And more uncomfortably — does the answer to that question change how I should be living?</p>
+  </section>
+
+  <section class="reveal">
+    <h2><span class="num">02</span>Sundar Pichai and the CEO's Wager</h2>
+    <p>Here's where I landed, practically, before I got to the deeper stuff. Sundar Pichai — who runs Google, a company built on data and evidence — reportedly said something close to this: it is significantly worse to underinvest than to overinvest in something with uncertain but large upside.</p>
+    <p>He said it about AI infrastructure. But I applied it to God.</p>
+    <p>The logic is clean and it's actually ancient — the French philosopher Blaise Pascal formalized it in the 1600s. But here's the version I actually believe, laid out plainly:</p>
+
+    <div class="wager-grid">
+      <div class="wager-header" style="grid-column: 1;">You Believe</div>
+      <div class="wager-header" style="grid-column: 2;">You Don't Believe</div>
+      <div class="wager-cell">
+        <span class="outcome good">God Exists →</span>
+        <span class="desc">You gained something real. The practice wasn't wasted. You played the right side of an asymmetric bet.</span>
+      </div>
+      <div class="wager-cell">
+        <span class="outcome neutral">God Exists →</span>
+        <span class="desc">You spent your life with one less source of meaning. Minor loss, arguably. But still a loss.</span>
+      </div>
+      <div class="wager-cell">
+        <span class="outcome neutral">God Doesn't Exist →</span>
+        <span class="desc">The discipline, the ritual, the stillness — none of that was nothing. You built something real in yourself.</span>
+      </div>
+      <div class="wager-cell">
+        <span class="outcome neutral">God Doesn't Exist →</span>
+        <span class="desc">No real cost. You were right. Congratulations, I suppose.</span>
+      </div>
+    </div>
+
+    <p>The asymmetry is obvious. The downside of believing and being wrong is small. The downside of not believing and being wrong is real. I'm not saying this proves God exists. I'm saying this is a rational framework for choosing <em>how to orient yourself</em> in the face of genuine uncertainty.</p>
+    <p>But then I read the Rig Veda, and the whole thing got more interesting.</p>
+  </section>
+
+  <section class="reveal">
+    <h2><span class="num">03</span>The Verse That Broke My Brain</h2>
+    <p>The Rig Veda is one of the oldest human texts in existence. Four thousand years old, possibly more. And buried in its tenth book is a hymn called the <em>Nasadiya Sukta</em> — the Hymn of Creation. It is asking: where did everything come from?</p>
+    <p>It goes through the standard cosmological moves. Before existence, there was neither being nor non-being. Neither death nor immortality. Neither day nor night. Only the One, breathing without breath, in darkness.</p>
+    <p>And then — and I genuinely stopped reading when I got here — it says:</p>
+
+    <div class="rig-block">
+      <p class="rig-source">Rig Veda · Nasadiya Sukta · Book X, Hymn 129</p>
+      <p class="rig-text">"Who really knows? Who will here proclaim it? Whence was it produced? Whence is this creation? The gods came afterwards, with the creation of this universe. Who then knows whence it has arisen?"</p>
+      <p class="rig-note">And the final line: "Perhaps it formed itself, or perhaps it did not — only He who is its overseer in highest heaven knows. He only knows — or perhaps He does not know."</p>
+    </div>
+
+    <p>Read that last line again. <em>Or perhaps He does not know.</em></p>
+    <p>A civilization, four thousand years ago, with enough philosophical courage to write: <strong>maybe even God isn't sure.</strong> They didn't hedge it. They didn't soften it into metaphor. They planted it at the end of a creation hymn, deliberately, as the final thought. The question is the answer. The uncertainty is the point.</p>
+
+    <div class="insight">
+      <p class="insight-label">What this actually means</p>
+      <p>The Rig Veda isn't saying God doesn't exist. It's saying <em>certainty itself is suspect.</em> The greatest ancient thinkers didn't arrive at confident theology — they arrived at honest inquiry. That's a more radical position than either atheism or devotion. It's intellectual humility at a cosmic scale.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <h2><span class="num">04</span>Ravan Was a Better Devotee. Shiva Chose Ram Anyway.</h2>
+    <p>Here's the story that reframed everything else for me — and it comes from within Hinduism itself, which makes it more honest, not less.</p>
+    <p>Both Ram and Ravan worshipped Shiva. Both received his blessings. But Ravan's devotion was, by any conventional metric, <em>superior.</em> He was a scholar of the Vedas. He performed the most extreme austerities. He composed the Shiva Tandava Stotram — one of the most powerful hymns to Shiva ever written — reportedly while holding up Mount Kailash with his bare hands to honor the god. He received the Chandrahas, a divine weapon, directly from Shiva.</p>
+    <p>Ram, by contrast, performed a much simpler worship. He built a Shivalinga from sand on a beach before battle.</p>
+
+    <div class="contrast">
+      <div class="contrast-card ravan">
+        <p class="contrast-label">Ravan</p>
+        <p class="contrast-name">The Greater Devotee</p>
+        <p class="contrast-attr">Scholar of the Vedas and the Shastras</p>
+        <p class="contrast-attr">Composed the Shiva Tandava Stotram</p>
+        <p class="contrast-attr">Performed the most extreme penances</p>
+        <p class="contrast-attr">Received multiple divine weapons</p>
+        <p class="contrast-attr">Built Lanka, a civilization of unparalleled wealth</p>
+        <p class="contrast-verdict">Worship was real. Knowledge was real. Devotion was real.<br>But the <em>purpose</em> of all of it was self-aggrandizement.</p>
+      </div>
+      <div class="contrast-card ram">
+        <p class="contrast-label">Ram</p>
+        <p class="contrast-name">The Simpler Devotee</p>
+        <p class="contrast-attr">Simple sand Shivalinga before battle</p>
+        <p class="contrast-attr">Asked only for victory in righteous war</p>
+        <p class="contrast-attr">Upheld Dharma even at personal cost</p>
+        <p class="contrast-attr">Returned a kingdom he could have kept</p>
+        <p class="contrast-attr">Wept at war — not gloried in it</p>
+        <p class="contrast-verdict">Worship was modest. But the <em>character behind it</em> was aligned with something larger than himself.</p>
+      </div>
+    </div>
+
+    <p>Shiva granted Ravan boons. He respected the devotion. But when it came to the fundamental question — whose side are you on in the cosmic order? — the answer was obvious. Ravan's genius, his scholarship, his extraordinary devotion — all of it was bent toward power. His greatness was real and it was in service of himself.</p>
+    <p>Ram's greatness was in service of something else. Call it Dharma, call it righteousness, call it integrity. The metric wasn't volume of prayer. It was <strong>what you became through it.</strong></p>
+  </section>
+
+  <section class="reveal">
+    <h2><span class="num">05</span>Devotion as Discipline. Discipline as Resilience.</h2>
+    <p>I've learned the hard way — and I mean that precisely, not rhetorically — that discipline is not routine. Routine breaks the first time something goes wrong. Discipline is what you do <em>after</em> the routine breaks. It's not the streak. It's the return after the streak ends. That's resilience, and it's a completely different thing.</p>
+    <p>When I look at prayer through that lens, something shifts. The value isn't in the perfectly maintained ritual. It's in the act of returning to it. Coming back. Choosing, again, to orient yourself toward something larger than your immediate situation.</p>
+    <p>That's actually what the Ram-Ravan story is about at a structural level. Ravan never broke. His discipline was immaculate, his austerities extreme, his consistency extraordinary. But he was rigid in the wrong direction — rigid toward ego, toward dominance, toward accumulation. Ram broke repeatedly. He was exiled, his wife was taken, his kingdom was in chaos. What he kept returning to wasn't a ritual. It was a <em>value.</em></p>
+
+    <div class="verse" data-source="The Real Lesson">
+      <p class="verse-text">"The gods don't weigh your prayers. They weigh what you were willing to sacrifice your prayers for."</p>
+      <p class="verse-translation">— not from any scripture. just what I think the Ram-Ravan story is actually saying.</p>
+    </div>
+  </section>
+
+  <div class="hr reveal"></div>
+
+  <section class="reveal">
+    <h2><span class="num">06</span>So Where Does That Leave Me?</h2>
+    <p>I still pray. Not every day. Not perfectly. Sometimes because of my parents, sometimes because the habit has become its own kind of quiet, sometimes because I genuinely don't know what I'd do with that 5 minutes otherwise.</p>
+    <p>Do I believe God exists? I believe in the Rig Veda's honesty more than I believe in any confident theological position. <em>Maybe. Or maybe not. Or maybe the question is the wrong shape entirely.</em></p>
+    <p>What I do believe: <strong>integrity is the metric that survives every other debate.</strong> Whether God is real or not, whether the gods are metaphors or entities, whether devotion accumulates cosmic points or disappears into silence — the thing that remains is what you became. The kind of person you were when it cost you something to be that person.</p>
+    <p>Ravan prayed more than Ram. He knew the scriptures better. He was, by every external measure, the superior devotee. But he used all of that as currency for his own expansion, and when the moment came, the universe — or whatever you want to call the force that shapes outcomes — didn't care about his streak.</p>
+    <p>That's not a comfortable lesson for someone who wants to quantify their spiritual investment. But it's the true one. And I'll take the true one over the comfortable one every time.</p>
+  </section>
+
+  <div class="close reveal">
+    <p>I pray because I like the discipline. I pray because the gods of my childhood are genuinely admirable characters. I pray because Pascal and Sundar Pichai both agree the downside is small and the upside is unknown. I pray because it makes me briefly less certain of myself, and certainty — I have learned — is often the enemy of integrity.</p>
+    <p>And somewhere in all of that, maybe that's enough.</p>
+    <p><strong>Or maybe He doesn't know either.</strong></p>
+  </div>
+
+</article>
+
+<footer>
+  <p>Personal Essay · Hindu Philosophy · Rig Veda · Ram · Ravan · Shiva · Written from doubt, not certainty</p>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

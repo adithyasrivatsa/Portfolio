@@ -14,7 +14,7 @@ export default function Contact() {
           </div>
           <div className="space-y-6">
             <a 
-              href="mailto:archlinuxadithya@gmail.com" 
+              href="mailto:hello@adithyasrivatsa.in" 
               className="relative block w-full bg-white text-black p-8 md:p-12 text-3xl md:text-4xl font-black uppercase text-center hover:bg-black hover:text-white transition-all group"
             >
               <div className="absolute inset-0 bg-zinc-800 translate-x-4 translate-y-4 -z-10 border-4 md:border-8 border-white group-hover:translate-x-8 group-hover:translate-y-8 transition-all duration-150"></div>

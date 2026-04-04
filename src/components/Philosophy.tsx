@@ -28,10 +28,16 @@ export default function Philosophy() {
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentArticles.map((article, i) => (
-              <Link 
+            {recentArticles.map((article, i) => {
+              const CustomTag = article.metadata.customLink ? 'a' : Link;
+              const linkProps = article.metadata.customLink 
+                ? { href: article.metadata.customLink } 
+                : { to: `/article/${article.slug}` };
+
+              return (
+              <CustomTag 
                 key={article.slug} 
-                to={`/article/${article.slug}`}
+                {...linkProps as any}
                 className="group relative border-8 border-black p-8 bg-zinc-50 cursor-pointer min-h-[350px] flex flex-col justify-between hover:-translate-y-2 hover:translate-x-2 transition-all shadow-[8px_8px_0px_rgba(0,0,0,1)] hover:shadow-[-8px_8px_0px_rgba(0,0,0,1)]"
               >
                 <div>
@@ -51,8 +57,9 @@ export default function Philosophy() {
                     <ArrowRight />
                   </div>
                 </div>
-              </Link>
-            ))}
+              </CustomTag>
+              );
+            })}
             
             {recentArticles.length === 0 && (
               <div className="col-span-full border-4 border-black border-dashed p-12 text-center opacity-50 font-mono font-bold uppercase">
