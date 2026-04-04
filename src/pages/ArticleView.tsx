@@ -23,7 +23,7 @@ export default function ArticleView() {
   return (
     <article className="pt-32 pb-20 px-6 max-w-3xl mx-auto font-sans">
       <div className="mb-12 border-b-8 border-black pb-8">
-        <Link to="/philosophy" className="text-xs font-black uppercase tracking-widest hover:underline underline-offset-8 decoration-4 mb-8 inline-block">
+        <Link to={`/${article.category}`} className="text-xs font-black uppercase tracking-widest hover:underline underline-offset-8 decoration-4 mb-8 inline-block">
           &lt; Back to Library
         </Link>
         <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter leading-none mb-4">
