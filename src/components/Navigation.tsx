@@ -26,16 +26,9 @@ export default function Navigation() {
         {/* Desktop Links */}
         <div className="hidden lg:flex gap-8 font-black uppercase text-sm tracking-widest">
           {links.map(link => (
-            <div key={link.path} className="relative inline-block">
-              <Link to={link.path} className="hover:underline decoration-8 underline-offset-8">
-                <DecryptedText text={link.name} hoverText={link.hover} />
-              </Link>
-              {link.name === 'Me' && (
-                <span className="absolute -top-5 -left-2 text-[10px] bg-black text-white px-1.5 py-0.5 font-mono font-bold whitespace-nowrap animate-bounce rotate-[-10deg]">
-                  &darr; click this
-                </span>
-              )}
-            </div>
+            <Link key={link.path} to={link.path} className="hover:underline decoration-8 underline-offset-8">
+              <DecryptedText text={link.name} hoverText={link.hover} />
+            </Link>
           ))}
         </div>
         
