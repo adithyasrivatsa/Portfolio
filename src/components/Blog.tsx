@@ -16,11 +16,14 @@ export default function Blog() {
           viewport={{ once: true }}
         >
           <div className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none inline-block">
-              <DecryptedText text="THE LOGBOOK" />
-            </h2>
+            <div>
+              <h2 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4">
+                <DecryptedText text="BLOG" hoverText="ARTICLES" />
+              </h2>
+              <p className="text-xl md:text-2xl font-bold uppercase border-l-4 border-black pl-4">Engineering, architecture, and system updates.</p>
+            </div>
             <Link to="/blog" className="font-black uppercase tracking-widest hover:underline decoration-4 underline-offset-8">
-              View All Logs &rarr;
+              Read Archives &rarr;
             </Link>
           </div>
 

@@ -28,9 +28,6 @@ export function getAllArticles(category?: string): Article[] {
   if (!category || category === 'vision') {
     Object.assign(modules, import.meta.glob('/src/content/vision/*.md', { query: '?raw', import: 'default', eager: true }));
   }
-  if (!category || category === 'articles') {
-    Object.assign(modules, import.meta.glob('/src/content/articles/*.md', { query: '?raw', import: 'default', eager: true }));
-  }
 
   const articles: Article[] = [];
 
