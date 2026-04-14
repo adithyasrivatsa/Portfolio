@@ -208,3 +208,5 @@ MIT — do whatever you want with it.
 
 > *Built for developers who talk too much to their AI.*  
 > *Stop writing essays. Start writing prompts.*
+
+[View on GitHub](https://github.com/Hundred-Trillion/gibberish)
