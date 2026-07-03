@@ -1,134 +1,161 @@
-# Privacy Policy
+---
+title: "Aetheris Market Observer"
+date: "2026-07-03"
+description: "An intelligent browser extension for observing live market data, evaluating custom trading rules locally, and delivering real-time notifications."
+tags: ["chrome-extension", "market-observer", "trading", "ai", "automation", "javascript"]
+---
 
-**Last Updated:** July 3, 2026
+# 📈 Aetheris Market Observer
 
-## Overview
+**Observe markets. Create rules. Get notified.**
 
-Aetheris Market Observer ("Aetheris", "the Extension") is a browser extension that observes publicly available market data on supported trading platforms, evaluates user-defined rules locally, and notifies users when configured conditions are met.
+Aetheris Market Observer is a privacy-first Chrome extension that observes live market data from supported trading platforms, evaluates user-defined rules locally, and notifies you when market conditions are met.
 
-The extension is designed for **market observation only**. It does **not** place trades, interact with trading controls, modify orders, or automate trading activities.
+The extension is designed for **market observation only**. It **does not** execute trades, interact with trading controls, or automate transactions.
 
 ---
 
-# Information We Collect
+## 🔒 Privacy Policy
 
-Depending on the features you use, the extension may locally store:
+Your privacy is important.
 
-- User-defined alert rules
+Aetheris is built around a **local-first architecture**, meaning your market rules, settings, and historical logs remain on your device unless you explicitly enable optional cloud AI features.
+
+---
+
+## 📊 Information We Store
+
+The extension may locally store:
+
+- User-defined market rules
 - Extension settings and preferences
 - Technical indicator configurations
-- Historical logs and replay data
+- Historical logs
+- Replay data
 - Cached market observations
-- Optional AI provider API keys entered by the user
+- Optional AI provider API keys entered by you
 
-This information is stored locally on your device unless otherwise stated.
+By default, this information remains on your device using Chrome Extension Storage and IndexedDB.
 
 ---
 
-# Information We Do Not Collect
+## ❌ Information We Do Not Collect
 
-Aetheris does not intentionally collect or transmit:
+Aetheris does **not** intentionally collect or transmit:
 
-- Your name
+- Name
 - Email address
 - Phone number
 - Payment information
 - Government identification
 - Health information
 - Personal communications
-- Location information
+- GPS or location data
 
 ---
 
-# AI Features
+## 🤖 AI Features
 
-AI-powered features are optional.
+AI functionality is completely optional.
 
-If enabled, the extension sends only the information required to fulfill your request directly to the AI provider you choose (for example, OpenAI or Google Gemini).
+If you choose to enable AI-assisted rule creation or notification summaries, the extension communicates **directly** with the AI provider you configure (such as OpenAI or Google Gemini) using **your own API key**.
 
-Your API key is intended to be stored locally by the extension and is never transmitted to the developer.
+Your API key is intended to be stored locally by the extension and is **never transmitted to the developer**.
 
 ---
 
-# Data Storage
+## 💾 Data Storage
 
-The extension primarily stores data locally using Chrome Extension Storage and IndexedDB, including:
+The extension stores data locally using:
 
-- Settings
+- Chrome Extension Storage
+- IndexedDB
+
+This includes:
+
 - Rules
+- Preferences
 - Logs
 - Replay history
-- Preferences
+- Cached indicator data
 
 ---
 
-# Data Sharing
+## 🌐 Data Sharing
 
-We do **not** sell, rent, or transfer your data to third parties.
+Aetheris does **not**:
 
-If you enable optional AI functionality, only the data necessary to process your request is transmitted directly to your selected AI provider.
+- Sell user data
+- Rent user data
+- Share user data with advertisers
+- Transfer user data to unrelated third parties
+
+If AI features are enabled, only the information required to fulfill your request is sent directly to your selected AI provider.
 
 ---
 
-# Permissions
+## 🔑 Chrome Permissions
 
-## Storage
+### `storage`
 
 Used to save:
 
-- Settings
-- Rules
+- User settings
+- Alert rules
 - Preferences
 - Logs
-- Replay data
-
-## Notifications
-
-Used to display desktop notifications when user-defined market conditions are met.
-
-## Host Permissions
-
-Used to read publicly available market information from supported trading platforms so the extension can evaluate alert rules.
-
-The extension does **not** modify website content, submit forms, execute trades, or interact with trading controls.
+- Replay history
 
 ---
 
-# Your Choices
+### `notifications`
 
-You may:
-
-- Delete locally stored extension data at any time.
-- Disable AI functionality.
-- Remove your API keys.
-- Uninstall the extension to remove its local data.
+Used to display desktop notifications whenever a user-defined market condition is satisfied.
 
 ---
 
-# Third-Party Services
+### Host Permissions
 
-If you enable optional AI features, requests may be processed by third-party AI providers, such as:
+Used only to read publicly available market information from supported trading websites so that Aetheris can evaluate your rules.
 
-- OpenAI
-- Google Gemini
+The extension **does not**:
 
-Their handling of your data is governed by their respective privacy policies.
-
----
-
-# Changes to This Policy
-
-This Privacy Policy may be updated from time to time. Changes will be reflected by updating the "Last Updated" date at the top of this document.
+- Execute trades
+- Click buttons
+- Submit forms
+- Modify orders
+- Interact with trading controls
 
 ---
 
-# Contact
+## 🛡️ Your Control
 
-GitHub Repository:
+You remain in complete control of your data.
+
+At any time you may:
+
+- Delete locally stored extension data
+- Remove AI API keys
+- Disable AI features
+- Uninstall the extension
+
+---
+
+## 🔄 Policy Updates
+
+This Privacy Policy may be updated as the extension evolves.
+
+Any changes will be reflected by updating the **Last Updated** date at the top of this page.
+
+---
+
+## 📬 Contact
+
+**GitHub Repository**
 
 https://github.com/Hundred-Trillion/Aetheris-Market-Observer
 
-For support or bug reports, please use the GitHub Issues page.
+For support, bug reports, or feature requests, please use the GitHub Issues page.
 
 ---
 
